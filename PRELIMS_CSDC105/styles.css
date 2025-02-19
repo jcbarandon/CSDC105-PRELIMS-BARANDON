@@ -1,0 +1,92 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    margin: 0;
+    overflow: hidden;
+}
+
+#pspScreen {
+    background: rgba(17, 17, 17, 0.9);
+    border: 10px solid #444;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    width: 95%;
+    max-width: 600px;
+    max-height: 80vh;  
+    overflow-y: auto;  
+    text-align: center;
+    box-sizing: border-box;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    border: 2px solid #555;
+    border-radius: 5px;
+    background: #000;
+    color: #0f0;
+    text-align: center;
+    outline: none;
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #444;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #666;
+}
+
+img {
+    margin-top: 20px;
+    border: 3px solid #333;
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#statusMessage {
+    font-size: 10px;
+    color: #0f0;
+    margin-top: 10px;
+}
+
+#abilitiesContainer {
+    margin-top: 10px;
+    text-align: left;
+    color: #0f0;
+}
+
+#abilitiesContainer ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+#abilitiesContainer li {
+    list-style-type: square;
+    margin-bottom: 5px;
+}
+
+#abilitiesContainer strong {
+    color: #fff;
+}
