@@ -278,6 +278,17 @@ body {
     color: #888;
 }
 
+/* ===== FOOTER DISCLAIMER ===== */
+
+.disclaimer {
+    margin: 0;
+    max-width: 640px;
+    font-size: 6px;
+    line-height: 1.7;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+}
+
 /* ===== RESPONSIVE: hide decorative chrome on small screens ===== */
 
 @media (max-width: 760px) {
@@ -303,6 +314,19 @@ body {
 }
 
 /* ===== SCREEN CONTENT (unchanged app styling) ===== */
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.app-logo {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
 
 input[type="text"] {
     padding: 10px;
