@@ -9,24 +9,104 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- PSP Screen-like container -->
-    <div id="pspScreen">
-        <h1>Pokemon Fetcher</h1>
-        <!-- INPUT FIELD -->
-        <input type="text" id="pokemonName" placeholder="Enter Pokemon name">
-        <!-- BUTTON to trigger data fetch-->
-        <button onclick="fetchData()">Fetch Pokemon</button>
-        <p id="statusMessage"></p>
-        
-        <!-- DISPLAY -->
+    <!-- PSP console shell, modeled after the reference PSP artwork -->
+    <div class="psp-console">
+        <div class="psp-console-top">
+            <!-- LEFT SIDE: D-pad + analog stick -->
+            <div class="psp-controls psp-controls-left">
+                <div class="dpad">
+                    <span class="dpad-btn dpad-up"></span>
+                    <span class="dpad-btn dpad-down"></span>
+                    <span class="dpad-btn dpad-left"></span>
+                    <span class="dpad-btn dpad-right"></span>
+                    <span class="dpad-center"></span>
+                </div>
+                <div class="analog-stick"><span class="analog-stick-ball"></span></div>
+            </div>
 
-        <!-- pokemon sprite -->
-        <img src="" alt="Pokemon Sprite" id="pokemonSprite" style="display: none">
-        
-        <!-- abilities and descriptions -->
-        <div id="abilitiesContainer">
-            <h3>Abilities:</h3>
-            <ul id="abilitiesList"></ul>
+            <!-- SCREEN -->
+            <div class="psp-screen-bezel">
+                <span class="speaker-grille speaker-grille-left">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                </span>
+
+                <!-- PSP Screen-like container -->
+                <div id="pspScreen">
+                    <h1>Pokemon Fetcher</h1>
+                    <!-- INPUT FIELD -->
+                    <input type="text" id="pokemonName" placeholder="Enter Pokemon name">
+                    <!-- BUTTON to trigger data fetch-->
+                    <button onclick="fetchData()">Fetch Pokemon</button>
+                    <p id="statusMessage"></p>
+
+                    <!-- DISPLAY -->
+
+                    <!-- pokemon types -->
+                    <div id="typesContainer"></div>
+
+                    <!-- special species badges (legendary / mythical / baby) -->
+                    <div id="badgesContainer"></div>
+
+                    <!-- pokemon capture stage: pokeball splits open to reveal the sprite -->
+                    <div id="spriteStage" class="sprite-stage">
+                        <span class="sprite-glow"></span>
+                        <div class="pokeball" id="pokeball">
+                            <span class="pokeball-top"></span>
+                            <span class="pokeball-bottom"></span>
+                        </div>
+                        <img src="" alt="Pokemon Sprite" id="pokemonSprite">
+                    </div>
+
+                    <!-- play the pokemon's cry -->
+                    <button type="button" id="cryButton" class="cry-btn" style="display: none;" onclick="playCry()">&#9654; Cry</button>
+
+                    <!-- height and weight -->
+                    <div id="physicalInfoContainer"></div>
+
+                    <!-- genus + pokedex flavor text -->
+                    <div id="speciesInfoContainer"></div>
+
+                    <!-- base stats -->
+                    <div id="statsContainer"></div>
+
+                    <!-- evolution chain -->
+                    <div id="evolutionContainer"></div>
+
+                    <!-- abilities and descriptions -->
+                    <div id="abilitiesContainer">
+                        <h3>Abilities:</h3>
+                        <ul id="abilitiesList"></ul>
+                    </div>
+                </div>
+
+                <span class="speaker-grille speaker-grille-right">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                </span>
+            </div>
+
+            <!-- RIGHT SIDE: face buttons -->
+            <div class="psp-controls psp-controls-right">
+                <div class="action-buttons">
+                    <button type="button" class="face-btn btn-triangle" aria-label="Triangle"></button>
+                    <button type="button" class="face-btn btn-circle" onclick="clearAll()" aria-label="Circle - Clear"></button>
+                    <button type="button" class="face-btn btn-cross" onclick="fetchData()" aria-label="Cross - Fetch"></button>
+                    <button type="button" class="face-btn btn-square" aria-label="Square"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM BAR: select / volume / start / power -->
+        <div class="psp-bottom-bar">
+            <button type="button" class="pill-btn label-btn" onclick="clearAll()">SELECT</button>
+            <span class="volume-group">
+                <span class="pill-btn small">-</span>
+                <span class="pill-btn small">+</span>
+            </span>
+            <button type="button" class="pill-btn label-btn" onclick="fetchData()">START</button>
+            <span class="power-indicator">
+                <span class="power-led" id="powerLed"></span>
+                <span class="power-label">POWER</span>
+            </span>
         </div>
     </div>
 

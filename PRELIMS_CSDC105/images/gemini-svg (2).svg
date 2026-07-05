@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="auto">
+  <path d="M 100 100 C 110 40, 180 40, 240 50 L 240 70 C 180 60, 120 60, 110 110 Z" fill="#d4d4d4" stroke="#888" stroke-width="2"/>
+  <path d="M 700 100 C 690 40, 620 40, 560 50 L 560 70 C 620 60, 680 60, 690 110 Z" fill="#d4d4d4" stroke="#888" stroke-width="2"/>
+
+  <rect x="50" y="50" width="700" height="300" rx="150" ry="150" fill="#1c1c1e" stroke="#3a3a3c" stroke-width="4"/>
+  <path d="M 50 200 A 150 150 0 0 0 200 350 L 600 350 A 150 150 0 0 0 750 200 Z" fill="#111112" opacity="0.3"/> <rect x="220" y="70" width="360" height="210" fill="#050505" stroke="#2c2c2e" stroke-width="3"/>
+  <rect x="235" y="85" width="330" height="180" fill="#0b1b36"/>
+  <path d="M 235 85 L 565 85 L 400 265 L 235 265 Z" fill="#ffffff" opacity="0.03"/>
+
+  <g id="d-pad" transform="translate(130, 140)">
+    <rect x="-10" y="-35" width="20" height="30" rx="3" fill="#333333" stroke="#111" stroke-width="1"/>
+    <rect x="-10" y="5" width="20" height="30" rx="3" fill="#333333" stroke="#111" stroke-width="1"/>
+    <rect x="-35" y="-10" width="30" height="20" rx="3" fill="#333333" stroke="#111" stroke-width="1"/>
+    <rect x="5" y="-10" width="30" height="20" rx="3" fill="#333333" stroke="#111" stroke-width="1"/>
+    <rect x="-10" y="-10" width="20" height="20" fill="#333333"/>
+  </g>
+
+  <g id="analog-stick" transform="translate(130, 250)">
+    <circle cx="0" cy="0" r="30" fill="#151515" stroke="#222" stroke-width="2"/>
+    <circle cx="-2" cy="-2" r="22" fill="#2a2a2c"/>
+    <circle cx="0" cy="0" r="22" fill="#333333"/>
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#222" stroke-width="1" opacity="0.5"/>
+    <circle cx="0" cy="0" r="10" fill="none" stroke="#222" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <g id="action-buttons" transform="translate(670, 140)">
+    <circle cx="0" cy="-35" r="14" fill="#2a2a2c" stroke="#111" stroke-width="1"/>
+    <polygon points="0,-43 -6,-30 6,-30" fill="none" stroke="#23e16b" stroke-width="2.5" stroke-linejoin="round"/>
+    
+    <circle cx="35" cy="0" r="14" fill="#2a2a2c" stroke="#111" stroke-width="1"/>
+    <circle cx="35" cy="0" r="7" fill="none" stroke="#ff3b30" stroke-width="2.5"/>
+    
+    <circle cx="0" cy="35" r="14" fill="#2a2a2c" stroke="#111" stroke-width="1"/>
+    <path d="M -5 30 L 5 40 M 5 30 L -5 40" stroke="#007aff" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <circle cx="-35" cy="0" r="14" fill="#2a2a2c" stroke="#111" stroke-width="1"/>
+    <rect x="-41" y="-6" width="12" height="12" fill="none" stroke="#cc73e1" stroke-width="2.5" stroke-linejoin="round"/>
+  </g>
+
+  <rect x="235" y="305" width="30" height="12" rx="6" fill="#333333"/>
+  <path d="M 245 312 L 250 308 L 255 312 L 255 314 L 245 314 Z" fill="#aaa"/>
+
+  <rect x="290" y="305" width="20" height="12" rx="6" fill="#333333"/>
+  <rect x="320" y="305" width="20" height="12" rx="6" fill="#333333"/>
+  <text x="300" y="315" fill="#aaa" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">-</text>
+  <text x="330" y="315" fill="#aaa" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">+</text>
+
+  <rect x="375" y="305" width="25" height="12" rx="6" fill="#333333"/>
+  <rect x="410" y="305" width="25" height="12" rx="6" fill="#333333"/>
+  
+  <rect x="480" y="305" width="35" height="12" rx="6" fill="#333333"/>
+  <text x="497.5" y="314" fill="#aaa" font-family="sans-serif" font-size="8" font-weight="bold" text-anchor="middle">SELECT</text>
+  
+  <rect x="530" y="305" width="35" height="12" rx="6" fill="#333333"/>
+  <text x="547.5" y="314" fill="#aaa" font-family="sans-serif" font-size="8" font-weight="bold" text-anchor="middle">START</text>
+
+  <g fill="#000" opacity="0.6">
+    <circle cx="230" cy="190" r="1.5"/> <circle cx="230" cy="195" r="1.5"/> <circle cx="230" cy="200" r="1.5"/>
+    <circle cx="235" cy="192.5" r="1.5"/> <circle cx="235" cy="197.5" r="1.5"/>
+    
+    <circle cx="570" cy="190" r="1.5"/> <circle cx="570" cy="195" r="1.5"/> <circle cx="570" cy="200" r="1.5"/>
+    <circle cx="565" cy="192.5" r="1.5"/> <circle cx="565" cy="197.5" r="1.5"/>
+  </g>
+
+  <circle cx="725" cy="220" r="3" fill="#00ff00" opacity="0.8"/>
+  <text x="735" y="223" fill="#888" font-family="sans-serif" font-size="8" font-weight="bold">POWER</text>
+</svg>

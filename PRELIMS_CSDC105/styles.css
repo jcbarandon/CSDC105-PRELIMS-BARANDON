@@ -11,19 +11,298 @@ body {
     overflow: hidden;
 }
 
-#pspScreen {
-    background: rgba(17, 17, 17, 0.9);
-    border: 10px solid #444;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-    padding: 20px;
+/* ===== PSP CONSOLE SHELL ===== */
+
+.psp-console {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
     width: 95%;
-    max-width: 600px;
-    max-height: 80vh;  
-    overflow-y: auto;  
+    max-width: 960px;
+    padding: 26px 30px;
+    background: linear-gradient(180deg, #232326, #1c1c1e 55%, #161618);
+    border: 4px solid #3a3a3c;
+    border-radius: 120px / 46px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.06);
+    box-sizing: border-box;
+}
+
+/* "ear" hinge accents at the top corners */
+.psp-console::before,
+.psp-console::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    width: 64px;
+    height: 30px;
+    background: #d4d4d4;
+    border: 2px solid #888;
+    border-radius: 60% 40% 50% 50% / 60% 60% 40% 40%;
+}
+
+.psp-console::before {
+    left: 30px;
+    transform: rotate(-18deg);
+}
+
+.psp-console::after {
+    right: 30px;
+    transform: rotate(18deg);
+}
+
+.psp-console-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+}
+
+.psp-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-shrink: 0;
+}
+
+/* ===== D-PAD ===== */
+
+.dpad {
+    position: relative;
+    width: 70px;
+    height: 70px;
+}
+
+.dpad-btn {
+    position: absolute;
+    background: #333333;
+    border: 1px solid #111;
+    border-radius: 3px;
+}
+
+.dpad-up, .dpad-down {
+    left: 25px;
+    width: 20px;
+    height: 25px;
+}
+
+.dpad-up { top: 0; }
+.dpad-down { bottom: 0; }
+
+.dpad-left, .dpad-right {
+    top: 25px;
+    width: 25px;
+    height: 20px;
+}
+
+.dpad-left { left: 0; }
+.dpad-right { right: 0; }
+
+.dpad-center {
+    position: absolute;
+    left: 25px;
+    top: 25px;
+    width: 20px;
+    height: 20px;
+    background: #333333;
+}
+
+/* ===== ANALOG STICK ===== */
+
+.analog-stick {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #151515;
+    border: 2px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.analog-stick-ball {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #3a3a3c, #222 70%);
+}
+
+/* ===== FACE BUTTONS ===== */
+
+.action-buttons {
+    position: relative;
+    width: 96px;
+    height: 96px;
+}
+
+.face-btn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #2a2a2c;
+    border: 1px solid #111;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+}
+
+.face-btn:hover {
+    background: #3a3a3c;
+}
+
+.btn-triangle { top: 0; left: 33px; color: #23e16b; }
+.btn-circle { top: 33px; left: 66px; color: #ff3b30; }
+.btn-cross { top: 66px; left: 33px; color: #4da3ff; }
+.btn-square { top: 33px; left: 0; color: #cc73e1; }
+
+.btn-triangle::after { content: "\25B3"; }
+.btn-circle::after { content: "\25CB"; }
+.btn-cross::after { content: "\2715"; }
+.btn-square::after { content: "\25A1"; }
+
+/* ===== SCREEN BEZEL ===== */
+
+.psp-screen-bezel {
+    background: #050505;
+    border: 3px solid #2c2c2e;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.speaker-grille {
+    display: grid;
+    grid-template-columns: repeat(2, 4px);
+    grid-auto-rows: 4px;
+    gap: 3px;
+    align-content: center;
+    flex-shrink: 0;
+}
+
+.speaker-grille span {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+#pspScreen {
+    background: linear-gradient(160deg, rgba(11, 27, 54, 0.95), rgba(5, 10, 20, 0.95));
+    border-radius: 4px;
+    padding: 20px;
+    width: 100%;
+    max-width: 560px;
+    height: 70vh;
+    overflow-y: auto;
     text-align: center;
     box-sizing: border-box;
 }
+
+/* ===== BOTTOM BAR ===== */
+
+.psp-bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.pill-btn {
+    background: #333333;
+    color: #aaa;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 14px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.pill-btn:hover {
+    background: #444;
+    color: #fff;
+}
+
+.pill-btn.small {
+    padding: 7px 11px;
+}
+
+.volume-group {
+    display: flex;
+    gap: 6px;
+}
+
+.power-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 10px;
+}
+
+.power-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #333;
+    display: inline-block;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.power-led.on {
+    background: #00ff00;
+    box-shadow: 0 0 8px 2px rgba(0, 255, 0, 0.8);
+}
+
+.power-led.error {
+    background: #ff3b30;
+    box-shadow: 0 0 8px 2px rgba(255, 59, 48, 0.8);
+}
+
+.power-label {
+    font-size: 7px;
+    color: #888;
+}
+
+/* ===== RESPONSIVE: hide decorative chrome on small screens ===== */
+
+@media (max-width: 760px) {
+    .psp-console {
+        padding: 16px;
+        border-radius: 30px;
+        gap: 10px;
+    }
+
+    .psp-console::before,
+    .psp-console::after {
+        display: none;
+    }
+
+    .psp-controls-left,
+    .psp-controls-right {
+        display: none;
+    }
+
+    #pspScreen {
+        max-width: 100%;
+    }
+}
+
+/* ===== SCREEN CONTENT (unchanged app styling) ===== */
 
 input[type="text"] {
     padding: 10px;
@@ -39,7 +318,7 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
-button {
+#pspScreen > button {
     padding: 10px 20px;
     border: none;
     background: #444;
@@ -50,19 +329,115 @@ button {
     transition: background 0.3s;
 }
 
-button:hover {
+#pspScreen > button:hover {
     background: #666;
 }
 
-img {
-    margin-top: 20px;
-    border: 3px solid #333;
-    border-radius: 10px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+/* ===== POKEBALL CAPTURE STAGE ===== */
+
+.sprite-stage {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 15px auto 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.sprite-stage.active {
+    display: flex;
+}
+
+.sprite-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 210px;
+    height: 210px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.pokeball {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110px;
+    height: 110px;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.6));
+}
+
+.pokeball-top, .pokeball-bottom {
+    position: absolute;
+    left: 0;
+    width: 110px;
+    height: 55px;
+    background-image: url('images/gemini-svg (3).svg');
+    background-repeat: no-repeat;
+    background-size: 110px 110px;
+    transition: transform 0.6s cubic-bezier(.34, 1.56, .64, 1), opacity 0.6s ease;
+}
+
+.pokeball-top {
+    top: 0;
+    background-position: 0 0;
+}
+
+.pokeball-bottom {
+    bottom: 0;
+    background-position: 0 -55px;
+}
+
+.pokeball.loading {
+    animation: pokeball-shake 0.6s ease-in-out infinite;
+}
+
+.pokeball.open .pokeball-top {
+    transform: translateY(-70px) rotate(-25deg);
+    opacity: 0;
+}
+
+.pokeball.open .pokeball-bottom {
+    transform: translateY(70px) rotate(15deg);
+    opacity: 0;
+}
+
+@keyframes pokeball-shake {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+    20% { transform: translate(-50%, -50%) rotate(-10deg); }
+    40% { transform: translate(-50%, -50%) rotate(8deg); }
+    60% { transform: translate(-50%, -50%) rotate(-8deg); }
+    80% { transform: translate(-50%, -50%) rotate(6deg); }
+}
+
+#pokemonSprite {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 190px;
+    height: 190px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0;
+    transition: transform 0.45s cubic-bezier(.34, 1.56, .64, 1) 0.55s, opacity 0.35s ease 0.55s;
+}
+
+#pokemonSprite.revealed {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* used briefly to snap the ball/sprite back to their reset state with no
+   animation, so a new search never overlaps with the previous reveal */
+.pokeball.instant .pokeball-top,
+.pokeball.instant .pokeball-bottom,
+#pokemonSprite.instant {
+    transition: none !important;
 }
 
 #statusMessage {
@@ -89,4 +464,217 @@ img {
 
 #abilitiesContainer strong {
     color: #fff;
+}
+
+#typesContainer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.typeBadge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 9px;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+#physicalInfoContainer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 9px;
+    color: #0f0;
+}
+
+#physicalInfoContainer span {
+    white-space: nowrap;
+}
+
+#statsContainer {
+    margin-top: 15px;
+    text-align: left;
+    color: #0f0;
+}
+
+.statRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 8px;
+}
+
+.statName {
+    width: 90px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.statValue {
+    width: 30px;
+    text-align: right;
+    flex-shrink: 0;
+    color: #fff;
+}
+
+.statBarBackground {
+    flex-grow: 1;
+    background: #333;
+    border-radius: 3px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.statBar {
+    height: 100%;
+    background: #0f0;
+    border-radius: 3px;
+}
+
+/* ===== SPECIAL BADGES (legendary / mythical / baby) ===== */
+
+#badgesContainer {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.specialBadge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 8px;
+    text-transform: uppercase;
+    color: #111;
+    text-shadow: none;
+}
+
+.legendary-badge {
+    background: linear-gradient(135deg, #f6d365, #c9a227);
+}
+
+.mythical-badge {
+    background: linear-gradient(135deg, #f7b2e0, #a259c6);
+    color: #fff;
+}
+
+.baby-badge {
+    background: linear-gradient(135deg, #bde0fe, #6ea8ee);
+}
+
+/* ===== CRY BUTTON ===== */
+
+.cry-btn {
+    margin-top: 12px;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    background: #333333;
+    color: #0f0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.cry-btn:hover {
+    background: #444;
+    color: #fff;
+}
+
+/* ===== SPECIES INFO (genus + pokedex flavor text) ===== */
+
+#speciesInfoContainer {
+    margin-top: 12px;
+    color: #0f0;
+}
+
+.genusText {
+    font-size: 9px;
+    color: #9be89b;
+    margin: 0 0 8px;
+}
+
+.flavorText {
+    font-size: 9px;
+    line-height: 1.6;
+    color: #cdeccd;
+    text-align: left;
+    margin: 0;
+    padding: 8px;
+    background: rgba(0, 255, 0, 0.05);
+    border-left: 3px solid #0f0;
+    border-radius: 3px;
+}
+
+/* ===== EVOLUTION CHAIN ===== */
+
+#evolutionContainer {
+    margin-top: 15px;
+    text-align: left;
+    color: #0f0;
+}
+
+.evolutionChain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.evolutionStage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.evolutionName {
+    padding: 5px 9px;
+    border-radius: 5px;
+    background: #222;
+    border: 1px solid #444;
+    font-size: 8px;
+    text-transform: uppercase;
+    color: #0f0;
+    white-space: nowrap;
+}
+
+.evolutionName.current {
+    background: #0f0;
+    color: #111;
+    border-color: #0f0;
+    box-shadow: 0 0 8px 1px rgba(0, 255, 0, 0.7);
+}
+
+.evolutionNode {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.evolutionArrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 11px;
+    color: #888;
+    padding: 0 4px;
+}
+
+.evolutionTrigger {
+    font-size: 6px;
+    color: #888;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
